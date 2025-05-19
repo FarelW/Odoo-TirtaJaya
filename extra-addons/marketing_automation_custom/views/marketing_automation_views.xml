@@ -1,0 +1,31 @@
+<odoo>
+  <!-- Extend form Email Campaign dari mass_mailing -->
+  <record id="email_marketing_campaign_form_inherit" model="ir.ui.view">
+    <field name="name">mass_mailing.mailing.form.inherit</field>
+    <field name="model">mailing.mailing</field>
+    <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+    <field name="arch" type="xml">
+      <sheet position="inside">
+        <group>
+          <field name="crm_stage_id"/>
+          <field name="auto_send"/>
+        </group>
+      </sheet>
+    </field>
+  </record>
+
+  <!-- Extend form CRM Lead -->
+  <record id="crm_lead_form_inherit_marketing" model="ir.ui.view">
+    <field name="name">crm.lead.form.marketing.inherit</field>
+    <field name="model">crm.lead</field>
+    <!-- pakai XML ID yang benar untuk form lead -->
+    <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+    <field name="arch" type="xml">
+      <notebook position="inside">
+        <page string="Email Campaigns">
+          <field name="campaign_ids" widget="many2many_tags"/>
+        </page>
+      </notebook>
+    </field>
+  </record>
+</odoo>

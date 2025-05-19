@@ -1,0 +1,35 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Odoo compiled files
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Docker volumes/storage
+postgresql/
+etc/
+*.sqlite3
+
+# Odoo logs, sessions, pid
+*.log
+*.pid
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
