@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="action_auto_campaign_insights" model="ir.actions.act_window">
+      <field name="name">Marketing Automation Insights</field>
+      <field name="res_model">mailing.mailing</field>
+      <field name="domain">[('auto_send','=',True)]</field>
+      <field name="view_mode">pivot,graph,form,list</field>
+    </record>
+
+    <menuitem
+      id="menu_marketing_automation_insights"
+      name="Insights"
+      parent="marketing_automation_custom.marketing_automation_menu_root"
+      action="marketing_automation_custom.action_auto_campaign_insights"
+      sequence="20"/>
+
+    <record id="view_auto_campaign_insights_pivot" model="ir.ui.view">
+      <field name="name">mailing.mailing.insights.pivot</field>
+      <field name="model">mailing.mailing</field>
+      <field name="arch" type="xml">
+        <pivot string="Automation Metrics">
+          <field name="schedule_date" type="row"/>
+          <field name="name"          type="col"/>
+          <field name="id"            type="measure" aggregate="count"/>
+        </pivot>
+      </field>
+    </record>
+
+    <record id="view_auto_campaign_insights_graph" model="ir.ui.view">
+      <field name="name">mailing.mailing.insights.graph</field>
+      <field name="model">mailing.mailing</field>
+      <field name="arch" type="xml">
+        <graph string="Campaigns Over Time">
+          <field name="schedule_date" type="row"/>
+          <field name="id"            type="measure" aggregate="count"/>
+        </graph>
+      </field>
+    </record>
+
+  </data>
+</odoo>

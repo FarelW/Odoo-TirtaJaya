@@ -1,7 +1,6 @@
 <odoo>
   <record id="ir_cron_auto_send_marketing" model="ir.cron">
     <field name="name">Auto Send Marketing Campaigns</field>
-    <!-- ganti referensi model_id agar menunjuk ke mailing.mailing -->
     <field name="model_id" ref="mass_mailing.model_mailing_mailing"/>
     <field name="state">code</field>
     <field name="code">model._cron_send_campaigns()</field>

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <!-- 1) Action untuk membuka campaign auto_send -->
   <record id="action_auto_mailing_list" model="ir.actions.act_window">
     <field name="name">Marketing Automation Campaign</field>
     <field name="res_model">mailing.mailing</field>
     <field name="view_mode">tree,form</field>
     <field name="domain">[('auto_send','=',True)]</field>
-    <field name="context">{}</field>
   </record>
 
-  <!-- 2) Root menu top‐level -->
   <record id="marketing_automation_menu_root" model="ir.ui.menu">
     <field name="name">Marketing Automation</field>
-    <!-- sequence menentukan urutan di sidebar -->
     <field name="sequence">20</field>
   </record>
 
-  <!-- 3) Sub‐menu yang memanggil action -->
   <record id="marketing_automation_menu_auto_campaigns" model="ir.ui.menu">
     <field name="name">Auto Email Campaigns</field>
-    <!-- parent pakai module prefix untuk keamanan -->
     <field name="parent_id" ref="marketing_automation_custom.marketing_automation_menu_root"/>
-    <!-- action juga dengan module prefix -->
-    <field name="action" ref="marketing_automation_custom.action_auto_mailing_list"/>
+    <field name="action"    ref="marketing_automation_custom.action_auto_mailing_list"/>
     <field name="sequence">10</field>
+  </record>
+
+  <record id="marketing_automation_menu_statistics" model="ir.ui.menu">
+    <field name="name">Statistics</field>
+    <field name="parent_id" ref="marketing_automation_custom.marketing_automation_menu_root"/>
+    <field name="action"    ref="mass_mailing.mailing_trace_report_action_mail"/>
+    <field name="sequence">20</field>
   </record>
 </odoo>

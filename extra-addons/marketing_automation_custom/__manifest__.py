@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Marketing Automation Custom",
     'version': "1.0",

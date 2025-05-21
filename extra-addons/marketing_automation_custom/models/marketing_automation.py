@@ -4,7 +4,6 @@ from datetime import datetime
 class MassMailingCampaign(models.Model):
     _inherit = 'mailing.mailing'
 
-    # menambahkan target stage dari CRM
     crm_stage_id = fields.Many2one(
         'crm.stage', string="Target CRM Stage",
         help="Kirim otomatis saat lead mencapai stage ini"
@@ -33,7 +32,6 @@ class MassMailingCampaign(models.Model):
 class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
-    # relasi many2many ke campaign email_marketing
     campaign_ids = fields.Many2many(
         comodel_name='mailing.mailing',
         relation='crm_lead_mailing_rel',
